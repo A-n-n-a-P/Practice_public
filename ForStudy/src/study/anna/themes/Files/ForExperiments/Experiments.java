@@ -20,8 +20,8 @@ public class Experiments {
     }
 
     public static boolean Digest() throws NoSuchAlgorithmException, IOException {
-        File dir1 = new File("C:\\Users\\ania_\\Desktop\\Антохино\\Hello.txt");
-        File dir2 = new File("C:\\Users\\ania_\\Desktop\\Антохино\\Hello2.txt");
+        File dir1 = new File("Way1");
+        File dir2 = new File("Way2");
 
         MessageDigest md1 = MessageDigest.getInstance("SHA-256");
         MessageDigest md2 = MessageDigest.getInstance("SHA-256");
