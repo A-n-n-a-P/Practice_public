@@ -10,7 +10,7 @@ public class FilesSearch {
     public static void main(String[] args) {
         Object a;
   //      a.hashCode();
-        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино");
+        File dirs = new File("Way");
 
         listFiles(dirs);
     }
