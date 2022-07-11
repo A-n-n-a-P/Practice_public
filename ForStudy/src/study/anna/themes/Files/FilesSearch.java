@@ -30,8 +30,7 @@ public class FilesSearch {
                         sizeDublicates += sizeFile;
                     PrintWriter duplicates = new PrintWriter(new BufferedWriter(new FileWriter("duplicatesFiles.txt", true)));
                         try {
-                            duplicates.println("\nДУБЛИКАТ");
-                            duplicates.println("Файл:  " + currentFolder.getName() + "\nПуть файла:  " + currentFolder + "\nРазмер файла: " + sizeFile + " байт" + "\nРазмер всех дубликатов: " + sizeDublicates / 1024 + " кб");
+                            duplicates.println("\nДУБЛИКАТ" + "Файл:  " + currentFolder.getName() + "\nПуть файла:  " + currentFolder + "\nРазмер файла: " + sizeFile + " байт" + "\nРазмер всех дубликатов: " + sizeDublicates / 1024 + " кб");
                             duplicates.close();
                         } catch (Exception e) {
                             e.printStackTrace();
