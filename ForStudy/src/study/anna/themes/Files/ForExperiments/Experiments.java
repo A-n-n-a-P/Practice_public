@@ -10,7 +10,7 @@ public class Experiments {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
 
 //        addFiles();
-        File dir1 = new File("C:\\Users\\ania_\\Desktop\\Антохино\\Hello.txt");
+        File dir1 = new File("WAY");
         HashCalculation(dir1);
 //        System.out.println("\n" + Digest());
     }
@@ -22,8 +22,8 @@ public class Experiments {
     }
 
     public static boolean Digest() throws NoSuchAlgorithmException, IOException {
-        File dir1 = new File("C:\\Users\\ania_\\Desktop\\Антохино\\Hello.txt");
-        File dir2 = new File("C:\\Users\\ania_\\Desktop\\Антохино\\Hello2.txt");
+        File dir1 = new File("WAY");
+        File dir2 = new File("WAY");
 
         MessageDigest md1 = MessageDigest.getInstance("SHA-256");
         MessageDigest md2 = MessageDigest.getInstance("SHA-256");
@@ -74,7 +74,6 @@ public class Experiments {
     }
 
     public static void HashCalculation(File file) throws NoSuchAlgorithmException, IOException {
-        //можно сделать возрвращение хэша и в else добавлять в мапу
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] buffer = new byte[1024];
         try(InputStream instream = new FileInputStream(file)) {
