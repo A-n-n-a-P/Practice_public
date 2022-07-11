@@ -19,18 +19,25 @@ public class FilesSearch {
         for (int i =0; i < files.length; i++) {
             File currentFolder = files[i];
             if(files[i].isDirectory()) {
- //               System.out.println("it's folder " + currentFolder.getName());
                 listFiles(currentFolder);
             }
             else {
                 Map<String, File> fileHashMap = new HashMap<>();
-                fileHashMap.put(HashCalculation(currentFolder), currentFolder);
+
+//                for (Map.Entry<String, File> hash : fileHashMap.entrySet()) {   // не заходит в цикл
+//                  System.out.println(hash.getKey());
+                String keyHash = HashCalculation(currentFolder);
+                    if(!(fileHashMap.containsKey(keyHash))) {
+                        fileHashMap.put(HashCalculation(currentFolder), currentFolder);
+//                        System.out.println(fileHashMap);
+                    }
+                    else {
+                        System.out.println("совпадениe");
+                    }
+                    System.out.println(fileHashMap);
+//               }
 //                System.out.println(fileHashMap);
-                for (Map.Entry<String, File> hash : fileHashMap.entrySet()) {
-                    //comparison
-                }
- //               HashCalculation(currentFolder);
- //               System.out.println("file " + currentFolder.getName());
+//                System.out.println("file " + currentFolder.getName());
             }
         }
     }
@@ -51,7 +58,6 @@ public class FilesSearch {
             stringDigest.append(String.format("%02x", b));
         }
         String hashFile = stringDigest.toString();
-//        System.out.println(hashFile);
         return hashFile;
     }
 }
