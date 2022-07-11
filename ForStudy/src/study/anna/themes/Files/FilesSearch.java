@@ -33,6 +33,7 @@ public class FilesSearch {
                     }
                     else {
                         System.out.println("совпадениe");
+//                         закинуть в файл
                     }
                     System.out.println(fileHashMap);
 //               }
