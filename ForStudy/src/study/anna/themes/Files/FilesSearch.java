@@ -19,7 +19,7 @@ public class FilesSearch {
         File[] files = folder.listFiles();
         for (int i =0; i < files.length; i++) {
             File currentFolder = files[i];
-            if(files[i].isDirectory()) {
+            if(currentFolder.isDirectory()) {
                 listFiles(currentFolder, fileHashMap);
             }
             else {
