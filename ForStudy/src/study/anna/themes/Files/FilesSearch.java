@@ -9,7 +9,7 @@ import java.util.Map;
 public class FilesSearch {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино");
+        File dirs = new File("Way");
 
         listFiles(dirs);
     }
