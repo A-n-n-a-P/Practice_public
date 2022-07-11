@@ -9,40 +9,37 @@ import java.util.Map;
 public class FilesSearch {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        File dirs = new File("Way");
-
-        listFiles(dirs);
+        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино");
+        Map<String, File> fileHashMap = new HashMap<>();
+        listFiles(dirs, fileHashMap);
     }
 
-    public static void listFiles(File folder) throws NoSuchAlgorithmException, IOException {
+    public static void listFiles(File folder, Map<String, File> fileHashMap) throws NoSuchAlgorithmException, IOException {
+        float sizeDublicates = 0.0f;
         File[] files = folder.listFiles();
         for (int i =0; i < files.length; i++) {
             File currentFolder = files[i];
             if(files[i].isDirectory()) {
-                listFiles(currentFolder);
+                listFiles(currentFolder, fileHashMap);
             }
             else {
-                Map<String, File> fileHashMap = new HashMap<>();
-
-//                for (Map.Entry<String, File> hash : fileHashMap.entrySet()) {   // не заходит в цикл
-//                  System.out.println(hash.getKey());
                 String keyHash = HashCalculation(currentFolder);
-                float sizeDublicates = 0.0f;
-                    if(fileHashMap.containsKey(keyHash)) {
-                        System.out.println("совпадениe");
-/*                        try(FileWriter duplicates = new FileWriter("duplicatesFiles.txt", false)) {
-                            duplicates.write(currentFolder.getName());
+                float sizeFile;
+                if(fileHashMap.containsKey(keyHash)) {
+                        sizeFile = currentFolder.length();
+                        sizeDublicates += sizeFile;
+                    PrintWriter duplicates = new PrintWriter(new BufferedWriter(new FileWriter("duplicatesFiles.txt", true)));
+                        try {
+                            duplicates.println("\nДУБЛИКАТ");
+                            duplicates.println("Файл:  " + currentFolder.getName() + "\nПуть файла:  " + currentFolder + "\nРазмер файла: " + sizeFile + " байт" + "\nРазмер всех дубликатов: " + sizeDublicates / 1024 + " кб");
+                            duplicates.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                        sizeDublicates += currentFolder.length() / 1024;
-*/                    }
-                    else {
+                }
+                else {
                         fileHashMap.put(HashCalculation(currentFolder), currentFolder);
-//                        System.out.println(fileHashMap);
-                    }
-                    System.out.println(fileHashMap);
-//               }
-//                System.out.println(fileHashMap);
-//                System.out.println("file " + currentFolder.getName());
+                }
             }
         }
     }
