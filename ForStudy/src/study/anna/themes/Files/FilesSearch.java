@@ -9,7 +9,7 @@ import java.util.Map;
 public class FilesSearch {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        File dirs = new File("WAY");
+        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино");
 
         listFiles(dirs);
     }
@@ -27,12 +27,17 @@ public class FilesSearch {
 //                for (Map.Entry<String, File> hash : fileHashMap.entrySet()) {   // не заходит в цикл
 //                  System.out.println(hash.getKey());
                 String keyHash = HashCalculation(currentFolder);
-                    if(!(fileHashMap.containsKey(keyHash))) {
+                float sizeDublicates = 0.0f;
+                    if(fileHashMap.containsKey(keyHash)) {
+                        System.out.println("совпадениe");
+/*                        try(FileWriter duplicates = new FileWriter("duplicatesFiles.txt", false)) {
+                            duplicates.write(currentFolder.getName());
+                        }
+                        sizeDublicates += currentFolder.length() / 1024;
+*/                    }
+                    else {
                         fileHashMap.put(HashCalculation(currentFolder), currentFolder);
 //                        System.out.println(fileHashMap);
-                    }
-                    else {
-                        System.out.println("совпадениe");
                     }
                     System.out.println(fileHashMap);
 //               }
