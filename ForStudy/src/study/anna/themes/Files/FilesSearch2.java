@@ -8,7 +8,7 @@ import java.util.*;
 public class FilesSearch2 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино — копия");
+        File dirs = new File("Path");
         Map<String, List<File>> fileHashMap = new HashMap<>();
         listFiles(dirs, fileHashMap);
         addToFile(fileHashMap);
