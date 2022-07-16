@@ -8,7 +8,7 @@ import java.util.*;
 public class FilesSearch2 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        File dirs = new File("Path");
+        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино — копия");
         Map<String, List<File>> fileHashMap = new HashMap<>();
         listFiles(dirs, fileHashMap);
         addToFile(fileHashMap);
@@ -58,10 +58,10 @@ public class FilesSearch2 {
         float sizeDublicates = 0.0f;
         for (List<File> value : fileHashMap.values()) {
             if(value.size() > 1) {
+                sizeDublicates += (value.get(0).length() * (value.size()-1));
                 for (File file : value) {
                     float sizeFile;
                     sizeFile = file.length();
-                    sizeDublicates += sizeFile;
                     try {
                         duplicates.println("Файл: " + file.getName() + "\nПуть файла: " + file + "\nРазмер файла: " + sizeFile + " байт\n");
                     } catch (Exception e) {
@@ -72,11 +72,11 @@ public class FilesSearch2 {
         }
         if((sizeDublicates / 1024) > 1024) {
             sizeDublicates /= Math.pow(1024, 2);
-            duplicates.println("\nРазмер всех дубликатов: " + sizeDublicates + " мб");
+            duplicates.println("\nМожно освободить памяти: " + sizeDublicates + " мб");
         }
         else {
             sizeDublicates /= 1024;
-            duplicates.println("\nРазмер всех дубликатов: " + sizeDublicates + " кб");
+            duplicates.println("\nМожно освободить памяти: " + sizeDublicates + " кб");
         }
         duplicates.close();
     }
