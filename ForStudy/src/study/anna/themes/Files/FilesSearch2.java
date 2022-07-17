@@ -8,7 +8,8 @@ import java.util.*;
 public class FilesSearch2 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        File dirs = new File("C:\\Users\\ania_\\Desktop\\Антохино — копия");
+        String yourPath = args[0];
+        File dirs = new File(yourPath);
         Map<String, List<File>> fileHashMap = new HashMap<>();
         listFiles(dirs, fileHashMap);
         addToFile(fileHashMap);
@@ -54,7 +55,7 @@ public class FilesSearch2 {
     }
 
     public static void addToFile(Map<String, List<File>> fileHashMap) throws IOException {
-        PrintWriter duplicates = new PrintWriter(new BufferedWriter(new FileWriter("duplicatesFiles.txt", true)));
+        PrintWriter duplicates = new PrintWriter(new BufferedWriter(new FileWriter("C:\\Users\\ania_\\Desktop\\Projects\\ForStudy\\duplicatesFiles.txt", true)));
         float sizeDublicates = 0.0f;
         for (List<File> value : fileHashMap.values()) {
             if(value.size() > 1) {
